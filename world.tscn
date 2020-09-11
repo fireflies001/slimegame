@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://tiles2.tres" type="TileSet" id=1]
+[ext_resource path="res://player/plyaer.tscn" type="PackedScene" id=2]
+[ext_resource path="res://enemy/enemy.tscn" type="PackedScene" id=3]
+
+[node name="world" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2( 2.66968, 443.167 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 48, 48 )
+format = 1
+tile_data = PoolIntArray( -393213, 1, 0, -393212, 0, 0, -393211, 0, 0, -393210, 0, 0, -393209, 0, 0, -393208, 0, 0, -262133, 0, 0, -262132, 0, 0, -262131, 0, 0, -262130, 0, 0, -262129, 0, 0, -131055, 0, 0, -131054, 0, 0, -131053, 0, 0, -131052, 0, 0, -131051, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 65536, 1, 0, 65537, 1, 0, 65538, 1, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65548, 1, 0, 65549, 1, 0, 65550, 1, 0, 65551, 0, 0, 65552, 0, 0, 65553, 0, 0, 65554, 0, 0, 65555, 0, 0, 65556, 0, 0, 65557, 0, 0, 131072, 1, 0, 131073, 1, 0, 131074, 1, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 1, 0, 131079, 1, 0, 131080, 1, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 1, 0, 131085, 1, 0, 131086, 1, 0, 131087, 1, 0, 131088, 1, 0, 131089, 1, 0, 131090, 1, 0, 131091, 1, 0, 131092, 1, 0, 131093, 1, 0 )
+
+[node name="Node2D" parent="." instance=ExtResource( 2 )]
+position = Vector2( 35.3992, 368.541 )
+
+[node name="enemy" parent="." instance=ExtResource( 3 )]
+position = Vector2( 340.231, 298.698 )

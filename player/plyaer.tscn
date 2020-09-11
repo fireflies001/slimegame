@@ -1,0 +1,101 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://player/blueslime.png" type="Texture" id=1]
+[ext_resource path="res://player.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16.5672, 15.9576 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "idle"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "run_left"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 5, 5, 6, 7, 8, 9 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "run_right"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 10, 11, 12, 13, 14 ]
+}
+
+[node name="Node2D" type="Node2D"]
+
+[node name="player" type="KinematicBody2D" parent="."]
+collision_layer = 2
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="player"]
+position = Vector2( 30.1617, 30.0217 )
+scale = Vector2( 1.01982, 0.981419 )
+texture = ExtResource( 1 )
+hframes = 15
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
+position = Vector2( 27.9307, 30.4056 )
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="RayCast2D" type="RayCast2D" parent="player"]
+position = Vector2( 13.2342, 43.005 )
+enabled = true
+cast_to = Vector2( 0, 10 )
+collision_mask = 7
+
+[node name="RayCast2D2" type="RayCast2D" parent="player"]
+position = Vector2( 42.6671, 43.5996 )
+enabled = true
+cast_to = Vector2( 0, 10 )
+collision_mask = 7
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+position = Vector2( 26.9695, 29.9661 )
+current = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="player"]
+anims/idle = SubResource( 2 )
+anims/run_left = SubResource( 3 )
+anims/run_right = SubResource( 4 )
